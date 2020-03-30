@@ -9,7 +9,7 @@ function turn_order(p1 : Pokemon, p2 : Pokemon) : Pokemon {
     if(cheater !== null) return cheater;
 
     if(p1.speed === p2.speed) {
-        if(getRandomInt(1) == 0) { return p1; }
+        if(getRandomInt(2) == 0) { return p1; }
         else { return p2; }
     }
 
