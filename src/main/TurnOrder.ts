@@ -1,6 +1,13 @@
 import {Pokemon} from "./Pokemon";
 
 function turn_order(p1 : Pokemon, p2 : Pokemon) : Pokemon {
+    let cheater = xor_cheater(p1, p2);
+    if(cheater !== null) return cheater;
+
+    return p1.speed > p2.speed ? p1 : p2;
+}
+
+function xor_cheater(p1 : Pokemon, p2 : Pokemon) : Pokemon | null {
     if(p1.cheater && !p2.cheater) {
         return p1;
     }
@@ -9,9 +16,7 @@ function turn_order(p1 : Pokemon, p2 : Pokemon) : Pokemon {
         return p2;
     }
 
-    return p1.speed > p2.speed ? p1 : p2;
+    return null;
 }
 
-
-
-export {turn_order};
+export {turn_order, xor_cheater};
